@@ -1,5 +1,9 @@
 .App {
+  background-color: rgba(61, 139, 163, 0.521);
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .App-logo {
@@ -26,6 +30,12 @@
 
 .App-link {
   color: #61dafb;
+}
+
+.usercard-title {
+  font-size: 75px;
+  color: white;
+  text-shadow: 2px 2px blueviolet;
 }
 
 @keyframes App-logo-spin {

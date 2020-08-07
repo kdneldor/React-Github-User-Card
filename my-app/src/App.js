@@ -9,7 +9,7 @@ class App extends React.Component {
     super();
     this.state = {
       users: [],
-      moreUsers: "",
+      // moreUsers: "",
     };
   }
 
@@ -20,9 +20,8 @@ class App extends React.Component {
       .then((res) => {
         this.setState({ users: res.data });
         console.log(res.data);
-        console.log(res.data.name);
-        console.log(res.data.id);
-        console.log(this.state);
+        console.log(this.state.users);
+        console.log(this.state.users.id);
       })
       .catch((err) => console.log(err));
   }
@@ -31,16 +30,16 @@ class App extends React.Component {
     if (prevState.users !== this.state.users) {
       console.log("Users have changed.");
     }
-    if (prevState.moreUsers !== this.state.moreUsers) {
-      console.log("State updated, users: ", this.state.moreUsers);
-    }
+    // if (prevState.moreUsers !== this.state.moreUsers) {
+    //   console.log("State updated, users: ", this.state.moreUsers);
+    // }
   }
 
   // fetchMoreUsers = () => {
   //   axios
   //     .get(`https://api.github.com/users/${users}`)
   //     .then((res) => {
-  //       this.setState({users: res.data}) 
+  //       this.setState({users: res.data})
   //     })
   //     .catch((err) => console.log(err))
   // }
@@ -56,14 +55,19 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <h1>GitHub Users</h1>
-        <UserCard />
-        {/* <div className="user-cards">
-          {this.state.users.map((user) => (
-            <img width="150" className="user" key={user} src={user} alt="" />
-          ))}
-          ;
-        </div> */}
+        <h1 className="usercard-title">GitHub UserCard</h1>
+        <UserCard
+          key={this.state.users.id}
+          name={this.state.users.name}
+          location={this.state.users.location}
+          bio={this.state.users.bio}
+          pic={this.state.users.avatar_url}
+          followers={this.state.users.followers}
+        />
+        {/* {this.state.users.map((user) => {
+          return <UserCard name={this.state.users.name} key={user} />;
+        })}
+        , */}
       </div>
     );
   }
