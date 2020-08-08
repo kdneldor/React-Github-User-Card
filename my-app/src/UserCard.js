@@ -1,12 +1,16 @@
-import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import Card from '@material-ui/core/Card';
-import CardActionArea from '@material-ui/core/CardActionArea';
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
-import CardMedia from '@material-ui/core/CardMedia';
-// import Button from '@material-ui/core/Button';
-import Typography from '@material-ui/core/Typography';
+import React from "react";
+import { makeStyles } from "@material-ui/core/styles";
+import Card from "@material-ui/core/Card";
+import CardActionArea from "@material-ui/core/CardActionArea";
+import CardActions from "@material-ui/core/CardActions";
+import CardContent from "@material-ui/core/CardContent";
+import CardMedia from "@material-ui/core/CardMedia";
+import Avatar from "@material-ui/core/Avatar";
+import Typography from "@material-ui/core/Typography";
+import Twitter from "./Twitter.png";
+import Instagram from "./Instagram.jpg";
+import Facebook from "./Facebook.png";
+import GitHub from "./GitHub.png"
 
 const useStyles = makeStyles({
   root: {
@@ -46,12 +50,15 @@ export default function UserCard(props) {
         </CardContent>
       </CardActionArea>
       <CardActions>
-        {/* <Button size="small" color="primary">
-          Share
-        </Button>
-        <Button size="small" color="primary">
-          Learn More
-        </Button> */}
+        <h3>Socials:</h3>
+        <Avatar alt="" src={GitHub} />
+        <h6>@kdneldor</h6>
+        <Avatar alt="" src={Twitter} />
+        <h6>@kdneldor</h6>
+        <Avatar alt="" src={Instagram} />
+        <h6>@kdneldor</h6>
+        <Avatar alt="" src={Facebook} />
+        <h6>Kyle Nelson</h6>
       </CardActions>
     </Card>
   );

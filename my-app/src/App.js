@@ -9,12 +9,13 @@ class App extends React.Component {
     super();
     this.state = {
       users: [],
-      // moreUsers: "",
+      followers: [],
     };
   }
 
   componentDidMount() {
     console.log("CDM Running");
+    //axios grabbing user data
     axios
       .get(`https://api.github.com/users/kdneldor`)
       .then((res) => {
@@ -24,15 +25,22 @@ class App extends React.Component {
         console.log(this.state.users.id);
       })
       .catch((err) => console.log(err));
+    //axios grabbing followers endpoint
+    axios
+      .get(`https://api.github.com/users/kdneldor/followers`)
+      .then((res) => {
+        this.setState({ followers: res.data });
+      })
+      .catch((err) => console.log(err));
   }
 
   componentDidUpdate(prevState, prevProps) {
     if (prevState.users !== this.state.users) {
       console.log("Users have changed.");
     }
-    // if (prevState.moreUsers !== this.state.moreUsers) {
-    //   console.log("State updated, users: ", this.state.moreUsers);
-    // }
+    if (prevState.followers !== this.state.followers) {
+      console.log("State updated, users: ", this.state.followers);
+    }
   }
 
   // fetchMoreUsers = () => {
